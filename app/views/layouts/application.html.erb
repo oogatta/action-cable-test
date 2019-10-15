@@ -7,9 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= yield :page_scripts %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
