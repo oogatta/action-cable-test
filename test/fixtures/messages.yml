@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  from: one
+  from_type: From
+  to: one
+  to_type: To
+
+two:
+  body: MyText
+  from: two
+  from_type: From
+  to: two
+  to_type: To
