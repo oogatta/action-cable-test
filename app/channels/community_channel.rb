@@ -1,7 +1,13 @@
 class CommunityChannel < ApplicationCable::Channel
   def subscribed
-    if (community = Community.find_by_id(params[:community_id]))
+    unless (community = Community.find_by_id(params[:community_id]))
+      return reject
+    end
+
+    if community.users.include?(current_user)
       stream_for community
+    else
+      reject
     end
   end
 
