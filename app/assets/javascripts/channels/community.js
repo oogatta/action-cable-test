@@ -3,7 +3,9 @@ $(document).on('turbolinks:load', () => {
     return;
   }
 
-  App.community = App.cable.subscriptions.create({ channel: "CommunityChannel", community_id: "1" }, {
+  console.log(window.COMMUNITY_ID);
+
+  App.community = App.cable.subscriptions.create({ channel: "CommunityChannel", community_id: window.COMMUNITY_ID }, {
     initialized() {
       console.log("initialized");
     },
