@@ -8,12 +8,16 @@ module ApplicationCable
 
     private
 
-      def find_verified_user
-        if (verified_user = env['warden'].user)
-          verified_user
-        else
-          reject_unauthorized_connection
-        end
+    def find_verified_user
+      if env['warden'].present? && env['warden'].authenticated?
+        # In App w/ Devise
+        env['warden'].user
+      elsif (verified_user = User.find_by(id: cookies.signed['user.id']))
+        # Standalone
+        verified_user
+      else
+        reject_unauthorized_connection
       end
+    end
   end
 end
