@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', () => {
-  if ( !$('body').hasClass('communities') ) {
+  if ($('body').data('controllerName') !== 'communities') {
     return;
   }
 
   console.log(window.COMMUNITY_ID);
 
-  App.community = App.cable.subscriptions.create({ channel: "CommunityChannel", community_id: window.COMMUNITY_ID }, {
+  App.community = App.cable.subscriptions.create({channel: "CommunityChannel", community_id: window.COMMUNITY_ID}, {
     initialized() {
       console.log("initialized");
     },

@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', () => {
-  if ( !$('body').hasClass('messages') ) {
+  if ( $('body').data('controllerName') !== 'messages' ) {
     return;
   }
 
