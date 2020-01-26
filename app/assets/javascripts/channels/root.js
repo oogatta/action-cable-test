@@ -1,9 +1,9 @@
 $(document).on('turbolinks:load', () => {
-  if ($('body').data('controllerName') !== 'communities') {
+  if ($('body').data('controllerName') !== 'root') {
     return;
   }
 
-  App.community = App.cable.subscriptions.create({channel: "CommunityChannel", community_id: window.COMMUNITY_ID}, {
+  App.root = App.cable.subscriptions.create({channel: "RootChannel"}, {
     initialized() {
       console.log("initialized");
     },
