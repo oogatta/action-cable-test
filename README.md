@@ -1,24 +1,22 @@
-# README
+# Action Cable Sample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1. Start Redis
 
-Things you may want to cover:
+### Example
 
-* Ruby version
+```bash
+$ brew services start redis
+or
+$ redis-server /usr/local/etc/redis.conf
+```
 
-* System dependencies
+## 2. Start Standalone Action Cable Server
 
-* Configuration
+### Example
 
-* Database creation
+```bash
+bundle exec puma -p 28080 cable/config.ru
+```
 
-* Database initialization
+## 3. Start Rails Server
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
