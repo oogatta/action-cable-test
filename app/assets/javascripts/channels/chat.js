@@ -3,6 +3,11 @@ $(document).on('turbolinks:load', () => {
     return;
   }
 
+  // If you need to wait the DOM, AND NEED TURBOLINKS, reset the previous subscription.
+  if (App.chat) {
+    App.cable.subscriptions.remove(App.community)
+  }
+
   App.chat = App.cable.subscriptions.create('ChatChannel', {
     initialized() {
       console.log("initialized");
